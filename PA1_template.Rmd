@@ -1,7 +1,18 @@
+---
+title: "Reproducible Research"
+author: "Abinashi Prakash"
+date: "27 March 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
 Reproducible Research: Peer Assessment 1
 
 ##Loading and preprocessing the data
-```{r,echo=TRUE}
+```{r ,echo=TRUE}
 
 ###1.Load the data 
 
@@ -12,7 +23,7 @@ source_data = read.csv("C:/Users/abinashi.prakash/Desktop/Coursera/repdata_data_
 ```
 
 ##What is mean total number of steps taken per day?
-```{r,echo=TRUE}
+```{r Steps per Day,echo=TRUE}
 
 ###1.Calculate the total number of steps taken per day
 
@@ -21,7 +32,7 @@ Tot_steps <- sum(source_data$steps, na.rm = TRUE)
 Tot_steps_day <- aggregate(steps~date, data=source_data, FUN=sum, na.rm=TRUE)
 ```
 
-```{r,echo=TRUE}
+```{r Histogram Steps Each Day,echo=TRUE}
 ###2. Make a histogram of the total number of steps taken each day
 
 hist(Tot_steps_day$steps,main = "Total Steps per Day",xlab = "Number of Steps")
@@ -43,7 +54,7 @@ Tot_steps_day_median
 
 ##What is the average daily activity pattern?
 
-```{r,echo=TRUE}
+```{r Time Series Plot for 5 mins interval,echo=TRUE}
 
 ###1.Make a time series plot of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis)
 
@@ -102,7 +113,7 @@ for (i in 1:17568)
 
 ###4.Make a histogram of the total number of steps taken each day and Calculate and report the mean and median total number of steps taken per day. Do these values differ from the estimates from the first part of the assignment? What is the impact of imputing missing data on the estimates of the total daily number of steps?
 
-```{r,echo=TRUE}
+```{r Histogram of number of steps taken each day without NA,echo=TRUE}
 
 Tot_steps_day_filled_in <- aggregate(steps~date, data=source_data_filled_in, FUN=sum, na.rm=TRUE)
 ###Histogram of the total number of steps taken each day
@@ -161,9 +172,14 @@ avg_interval_wday <- aggregate(steps~interval, data=wday_frame, FUN=mean, na.rm=
 ##avg_interval_wday
 avg_interval_wend <- aggregate(steps~interval, data=wend_frame, FUN=mean, na.rm=TRUE)
 ##avg_interval_wend
+```
 
+```{r Plots for Weekdays,echo=TRUE}
 ### Plots for Weekend and Weekdays
 plot(x = avg_interval_wday$interval, y = avg_interval_wday$steps, type = "l") 
+```
+
+```{r Plots for Weekend,echo=TRUE}
 plot(x = avg_interval_wend$interval, y = avg_interval_wend$steps, type = "l") 
 ```
 

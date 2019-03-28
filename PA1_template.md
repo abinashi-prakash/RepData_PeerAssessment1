@@ -22,7 +22,7 @@ What is mean total number of steps taken per day?
 
     hist(Tot_steps_day$steps,main = "Total Steps per Day",xlab = "Number of Steps")
 
-![](PA1_template_files/figure-markdown_strict/unnamed-chunk-3-1.png)
+![](PA1_template_files/figure-markdown_strict/Histogram%20Steps%20Each%20Day-1.png)
 
     ###3.Calculate and report the mean and median of the total number of steps taken per day
 
@@ -45,7 +45,7 @@ What is the average daily activity pattern?
 
     plot(x = avg_interval$interval, y = avg_interval$steps, type = "l") 
 
-![](PA1_template_files/figure-markdown_strict/unnamed-chunk-5-1.png)
+![](PA1_template_files/figure-markdown_strict/Time%20Series%20Plot%20for%205%20mins%20interval-1.png)
 
 ### 2.Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps
 
@@ -97,7 +97,7 @@ Imputing missing values
 
     hist(Tot_steps_day_filled_in$steps)
 
-![](PA1_template_files/figure-markdown_strict/unnamed-chunk-9-1.png)
+![](PA1_template_files/figure-markdown_strict/Histogram%20of%20number%20of%20steps%20taken%20each%20day%20without%20NA-1.png)
 
     ###Calculate and report the mean and median total number of steps taken per day. 
     Tot_steps_day_mean_filled_in <- mean(Tot_steps_day_filled_in$steps)
@@ -154,8 +154,8 @@ Are there differences in activity patterns between weekdays and weekends?
     ### Plots for Weekend and Weekdays
     plot(x = avg_interval_wday$interval, y = avg_interval_wday$steps, type = "l") 
 
-![](PA1_template_files/figure-markdown_strict/unnamed-chunk-11-1.png)
+![](PA1_template_files/figure-markdown_strict/Plots%20for%20Weekdays-1.png)
 
     plot(x = avg_interval_wend$interval, y = avg_interval_wend$steps, type = "l") 
 
-![](PA1_template_files/figure-markdown_strict/unnamed-chunk-11-2.png)
+![](PA1_template_files/figure-markdown_strict/Plots%20for%20Weekend-1.png)
